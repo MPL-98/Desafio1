@@ -1,25 +1,25 @@
 <?php
 
-class AbogadosController extends AppController
+class AccesoController extends AppController
 {
     public function index()
     {
-      
+        View::template(null);
     }
 
     public function listar($page = 1)
     {
-        
-         $this->listAbogados = (new Abogados())->getAbogados($page);
+        View::template(null);
+         $this->listAcceso = (new Acceso())->getAcceso($page);
     }
 
     public function crear()
     {
         
-        
-        if (Input::hasPost('abogados')) {
+        View::template(null);
+        if (Input::hasPost('acceso')) {
             
-            $abogado = new Abogados(Input::post('abogados'));
+            $abogado = new Acceso(Input::post('acceso'));
             //En caso que falle la operación de guardar
             if ($abogado->create()) {
                 Flash::valid('Operación exitosa');
@@ -36,21 +36,21 @@ class AbogadosController extends AppController
 
     public function editar($id){
        
-        
-        $buscado = (new Abogados())->find_by_id((int)$id);
+        View::template(null);
+        $buscado = (new Acceso())->find_by_id((int)$id);
 
         if($buscado != NULL){
-            $abogado = new Abogados();
+            $abogado = new Acceso();
             //verificar si se ha enviado el formulario
-            if(Input::hasPost('abogados')){
-                if($abogado->update(Input::post('abogados'))){
+            if(Input::hasPost('acceso')){
+                if($abogado->update(Input::post('acceso'))){
                     Flash::valid('Operacion exitosa');
-                    return Redirect::to('abogados/listar');
+                    return Redirect::to('acceso/listar');
                 }
                 Flash::error('Fallo la operación');
             return;
             }   
-            $this->abogados = $abogado->find_by_id((int)$id);
+            $this->acceso = $abogado->find_by_id((int)$id);
         }else{
             Flash::error('El ID no existe');
             View::template('noID');
@@ -59,19 +59,19 @@ class AbogadosController extends AppController
     }
 
     public function eliminar($id){
-        
-        if((new Abogados())->delete((int) $id)){
+        View::template(null);
+        if((new Acceso())->delete((int) $id)){
             Flash::valid('Operacion Exitosa');
         }else{
             Flash::error('Fallo Operacion');
 
         }
-        return Redirect::to('abogados/listar');
+        return Redirect::to('acceso/listar');
     }
 
     public function ver($id){
-        
-        $this->buscado = (new Abogados())->find_by_id((int)$id);
+        View::template(null);
+        $this->buscado = (new Acceso())->find_by_id((int)$id);
     }
 }
 

@@ -1,11 +1,11 @@
   <?php View::content() ?> 
-  <h3>Tabla Abogados</h3>
+  <h3>Tabla Tipo de Acceso</h3>
   <!--
   <ul>
      
-  <?php foreach($listAbogados->items as $item) : ?> 
+  <?php foreach($listAcceso->items as $item) : ?> 
   <li>
-    <strong><?= $item->id ?> - <?= $item->nombre ?></strong> 
+    <strong><?= $item->id ?> - <?= $item->tipo ?></strong> 
     <?= Html::linkAction("editar/$item->id/", 'Editar') ?> 
     <?= Html::linkAction("eliminar/$item->id/", 'Borrar') ?> 
     <?= Html::linkAction("ver/$item->id/", 'Ver') ?> 
@@ -20,18 +20,18 @@
 
     <td>ID</td>
 
-    <td>Nombre</td>
+    <td>Tipo</td>
 
     <td>Opciones</td>
 
   </tr>
-  <?php foreach($listAbogados->items as $item) : ?> 
+  <?php foreach($listAcceso->items as $item) : ?> 
 
   <tr>
 
     <td><?= $item->id ?></td>
 
-    <td><?= $item->nombre ?></td>
+    <td><?= $item->tipo ?></td>
 
     <td>
     <?= Html::linkAction("editar/$item->id/", 'Editar |') ?> 
@@ -48,6 +48,6 @@
 
   
    
-  <?php if($listAbogados->prev) echo Html::linkAction("index/$listAbogados->prev/", '<< Anterior |') ?> 
-  <?php if($listAbogados->next) echo Html::linkAction("index/$listAbogados->next/", 'Proximo >>') ?> 
+  <?php if($listAcceso->prev) echo Html::linkAction("index/$listAcceso->prev/", '<< Anterior |') ?> 
+  <?php if($listAcceso->next) echo Html::linkAction("index/$listAcceso->next/", 'Proximo >>') ?> 
 </div>
