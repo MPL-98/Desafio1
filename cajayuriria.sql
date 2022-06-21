@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-05-2022 a las 01:11:51
+-- Tiempo de generación: 21-06-2022 a las 02:04:20
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -28,18 +28,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `abogados` (
-  `IDabogados` int(11) NOT NULL,
-  `Nombre` varchar(20) NOT NULL
+  `id` int(11) NOT NULL,
+  `nombre` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `abogados`
 --
 
-INSERT INTO `abogados` (`IDabogados`, `Nombre`) VALUES
-(1, 'Juan'),
-(2, 'Pedro'),
-(3, 'Martin');
+INSERT INTO `abogados` (`id`, `nombre`) VALUES
+(1, 'Juan Lion'),
+(3, 'Martin'),
+(6, 'Laura Parra'),
+(7, 'Katia Jimenez'),
+(8, 'Itzel'),
+(10, 'Maria');
 
 -- --------------------------------------------------------
 
@@ -48,9 +51,20 @@ INSERT INTO `abogados` (`IDabogados`, `Nombre`) VALUES
 --
 
 CREATE TABLE `acceso` (
-  `IDacceso` int(11) NOT NULL,
-  `Nombreacc` varchar(20) NOT NULL
+  `id` int(11) NOT NULL,
+  `tipo` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `acceso`
+--
+
+INSERT INTO `acceso` (`id`, `tipo`) VALUES
+(1, 'Remoto'),
+(2, 'Tarjetas'),
+(3, 'Contraseña'),
+(4, 'Biometría Facial'),
+(6, 'PIN');
 
 -- --------------------------------------------------------
 
@@ -258,13 +272,13 @@ CREATE TABLE `usuarios` (
 -- Indices de la tabla `abogados`
 --
 ALTER TABLE `abogados`
-  ADD PRIMARY KEY (`IDabogados`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `acceso`
 --
 ALTER TABLE `acceso`
-  ADD PRIMARY KEY (`IDacceso`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `archivos`
@@ -382,13 +396,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `abogados`
 --
 ALTER TABLE `abogados`
-  MODIFY `IDabogados` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `acceso`
 --
 ALTER TABLE `acceso`
-  MODIFY `IDacceso` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `archivos`

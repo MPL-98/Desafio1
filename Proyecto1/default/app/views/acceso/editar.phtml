@@ -1,8 +1,8 @@
 <?php View::content() ?> 
 <h3>Editar registro de la tabla Abogado<h3>
 <?= Form::open(); // por defecto llama a la misma url ?>
-  <label>Nombre <?= Form::text('abogados.nombre') ?></label>
-  <?= Form::hidden('abogados.id') ?> 
+  <label>Tipo de Acceso <?= Form::text('acceso.tipo') ?></label>
+  <?= Form::hidden('acceso.id') ?> 
   <?= Form::submit('Actualizar') ?> 
   
 <?= Form::close() ?>
